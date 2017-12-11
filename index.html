@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="echarts.min.js"></script>
+<script>
+    /**
+     * @desc echarts图表调整大小
+     */
+    function echartsResize() {
+        [].forEach.call(document.querySelectorAll("[_echarts_instance_]"), function (instanceDom) {
+            $(instanceDom).children().hide();
+            window.requestAnimationFrame(function () {
+                echarts.getInstanceByDom(instanceDom) && echarts.getInstanceByDom(instanceDom).resize({width: instanceDom.clientWidth - 2});
+            });
+        });
+    }
+</script>
+</body>
+</html>
